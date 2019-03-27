@@ -6,6 +6,9 @@
   "author": "heyjuststart <41658450+heyjuststart@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.4",
