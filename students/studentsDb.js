@@ -4,7 +4,9 @@ const get = () => db('students');
 
 const getById = id =>
   db('students')
-    .where({ id })
+    .where({ 'students.id': id })
+    .join('cohorts', 'cohorts.id', '=', 'students.id')
+    .select('students.id', 'students.name', 'cohorts.name as cohort')
     .first();
 
 const insert = student =>

@@ -36,6 +36,19 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/:id/students', async (req, res) => {
+  try {
+    const students = await Cohorts.getStudentsById(req.params.id);
+    res.status(200).json(students);
+  } catch (error) {
+    // log error to database
+    console.log(error);
+    res.status(500).json({
+      error: 'The students information could not be retrieved.'
+    });
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     if (!req.body.name) {

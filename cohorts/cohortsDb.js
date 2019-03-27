@@ -22,11 +22,13 @@ const remove = id =>
     .where({ id })
     .del();
 
+const getStudentsById = id => db('students').where({ cohort_id: id });
+
 module.exports = {
   get,
   getById,
   insert,
   update,
-  remove
+  remove,
+  getStudentsById
 };
-
